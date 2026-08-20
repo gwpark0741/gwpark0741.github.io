@@ -54,5 +54,11 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
-          git commit -m "chore: render the latest CV"
-          git push
+          # RenderCV is deterministic, so an unchanged _data/cv.yml re-renders to
+          # a byte-identical PDF and `git commit` would exit 1 on an empty commit.
+          if git diff --staged --quiet; then
+            echo "CV output unchanged; nothing to push."
+          else
+            git commit -m "chore: render the latest CV"
+            git push
+          fi
