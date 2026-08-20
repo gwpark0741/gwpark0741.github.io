@@ -1,10 +1,13 @@
 name: Update Google Scholar Citations
 
 on:
-  schedule:
-    - cron: "0 0 * * 1" # Monday
-    - cron: "0 0 * * 3" # Wednesday
-    - cron: "0 0 * * 5" # Friday
+  # Schedule disabled: bin/update_scholar_citations.py exits 1 when
+  # _data/socials.yml has no scholar_userid, so a cron run is a guaranteed
+  # failure until one is set. Restore the three cron lines then.
+  #  schedule:
+  #    - cron: "0 0 * * 1" # Monday
+  #    - cron: "0 0 * * 3" # Wednesday
+  #    - cron: "0 0 * * 5" # Friday
   workflow_dispatch:
 
 jobs:
