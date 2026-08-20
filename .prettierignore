@@ -1,7 +1,6 @@
 **/*.map
 **/*.min.css
 **/*.min.js
-assets/plotly/demo.html
 lighthouse_results/**
 # Posts are hand-written prose. Prettier rewrites list markers, table padding
 # and blank lines around headings, which produces a red CI check on every note
