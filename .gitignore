@@ -23,3 +23,6 @@ __pycache__/
 # Local Obsidian configuration
 .obsidian/
 _templates/
+
+# 비공개 메모 - GitHub에 올리지 않고 사이트에도 내보내지 않는다.
+_private/
