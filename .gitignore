@@ -19,3 +19,7 @@ vendor
 # Python bytecode from bin/ helper scripts
 __pycache__/
 *.pyc
+
+# Local Obsidian configuration
+.obsidian/
+_templates/
