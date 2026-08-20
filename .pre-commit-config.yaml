@@ -4,7 +4,17 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
     hooks:
+      # Notes authored in Obsidian use two trailing spaces as a hard line break.
+      # Without this flag the hook strips them and silently reflows the post.
       - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-added-large-files
+  - repo: local
+    hooks:
+      - id: normalize-asset-links
+        name: normalize Obsidian asset links to site-absolute paths
+        entry: bin/normalize-asset-links
+        language: system
+        types: [markdown]

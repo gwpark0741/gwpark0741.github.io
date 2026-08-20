@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Rewrite vault-relative asset links into site-absolute ones.
+
+Obsidian inserts `](assets/img/foo.png)` for pasted attachments, which Jekyll
+resolves against the post's own URL (`/blog/2026/slug/assets/img/foo.png`) and
+404s. Obsidian renders the leading-slash form too, so `/assets/...` is the one
+spelling that works in both. Run as a pre-commit fixer.
+"""
+
+import re
+import sys
+
+# ](assets/... , ](./assets/... , ](../assets/... -> ](/assets/...
+# An already-absolute ](/assets/... does not match and is left alone.
+# An absolute URL like ](https://host/assets/... does not match either.
+PATTERN = re.compile(r"\]\((?:\.{1,2}/)*(assets/)")
+
+
+def fix(path):
+    with open(path, encoding="utf-8") as handle:
+        original = handle.read()
+    fixed = PATTERN.sub(r"](/\1", original)
+    if fixed == original:
+        return False
+    with open(path, "w", encoding="utf-8") as handle:
+        handle.write(fixed)
+    return True
+
+
+def main(paths):
+    changed = [path for path in paths if fix(path)]
+    for path in changed:
+        print(f"normalized asset links: {path}")
+    return 1 if changed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
