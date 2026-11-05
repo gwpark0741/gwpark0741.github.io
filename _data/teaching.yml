@@ -1,0 +1,11 @@
+# About 페이지 Teaching & Mentoring 타임라인. 위가 최신, 아래로 갈수록 과거. 형식은 education.yml 과 같습니다.
+- date: Fall 2025
+  items:
+    - "**Teaching Assistant**, Introduction to AI Programming"
+    - "**Mentor**, Parrot (Sogang University Data Science Society)"
+- date: 2024
+  items:
+    - KT 랜선야학 온라인 멘토
+- date: Oct 2023 – Feb 2025
+  items:
+    - 대학생 청소년교육지원장학금 교육봉사 - 아동센터 멘토링 (한국장학재단, 439시간)
