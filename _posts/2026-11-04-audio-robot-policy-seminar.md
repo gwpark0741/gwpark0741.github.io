@@ -1,6 +1,5 @@
 ---
 layout: post
-published: false # remove this line to publish
 title: "Paper Seminar: Audio-Aware Robot Policies (MultiGen & HEAR)"
 date: 2026-11-04 00:00:00
 description: "Seminar slides on two audio-aware robot policy papers: MultiGen (generative audio for sim-to-real) and HEAR (streaming auditory memory)"
