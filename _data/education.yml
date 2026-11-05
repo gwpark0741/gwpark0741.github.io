@@ -1,0 +1,19 @@
+# About 페이지 Education 타임라인 (학업·연구실·명예 단체). 위가 최신, 아래로 갈수록 과거.
+# 항목 하나 = date + items(한 줄씩). 같은 학기에 여러 일이 있으면 items 에 줄을 추가하면 됩니다.
+- date: Jan 2026
+  items:
+    - Joined **NLP & ISDS Lab** as an Undergraduate Research Intern! (ongoing)
+- date: Fall 2025
+  items:
+    - "**Presidential Award for Academic Excellence** (top 1% semester GPA)"
+    - "**Dean's List** (top 3% semester GPA)"
+    - Inducted into **Alpha Sigma Nu** (48th class; top 15% CGPA eligibility)
+- date: Spring 2025
+  items:
+    - Inducted into **Beta Gamma Sigma** (26th class; top 10% CGPA among business majors)
+- date: Fall 2024
+  items:
+    - "**Dean's List** (top 3% semester GPA)"
+- date: 2023
+  items:
+    - Enrolled at Sogang University — Business Administration & Computer Science and Engineering (expected graduation Feb 2027)

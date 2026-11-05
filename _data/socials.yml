@@ -1,8 +1,4 @@
-rss_icon: true # comment this line to hide the RSS icon
-# Fill these in as you go; every key left blank or commented out simply hides
-# its icon. See docs/CUSTOMIZE.md for the full list the jekyll-socials plugin
-# supports (email, github_username, linkedin_username, scholar_userid, ...).
-# email:
-# github_username:
-# linkedin_username:
-# scholar_userid:
+# About 페이지 아래 연락·프로필 아이콘. 값을 비우거나 줄을 지우면 해당 아이콘이 사라집니다.
+# 이메일은 _pages/about.md 에서 주소를 가려서 직접 넣습니다 (스팸 수집 방지)
+github_username: gwpark0741
+linkedin_username: gwangwoongpark

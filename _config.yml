@@ -7,11 +7,8 @@ first_name: Gwangwoong
 middle_name:
 last_name: Park
 contact_note: # TODO: 연락 방법에 대한 한 줄 안내 (첫 화면 소셜 아이콘 옆에 표시)
-description: # TODO: 검색 결과와 링크 공유 미리보기에 뜨는 한두 문장
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+description: Undergraduate researcher at Sogang University working on multimodal representation learning, generative models, and physical AI. # 검색 결과와 링크 공유 미리보기에 뜨는 문장
+footer_text: # 비워 두면 저작권 한 줄만 표시 (템플릿 안내 문구 제거)
 keywords: # TODO: 본인 분야 키워드 (비워두면 keywords 메타 태그 생략)
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
