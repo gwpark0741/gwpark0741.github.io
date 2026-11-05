@@ -10,7 +10,9 @@ repos:
         args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
       - id: check-yaml
+      # Slide PDFs for seminar posts are a few MB; the 500 KB default blocks them.
       - id: check-added-large-files
+        args: [--maxkb=10240]
   - repo: local
     hooks:
       - id: normalize-asset-links
