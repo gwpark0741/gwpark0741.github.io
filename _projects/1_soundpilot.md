@@ -14,6 +14,8 @@ category: research
 
 Gold Prize (1st place) at the Sogang Capstone Design Competition · KCC 2026 accepted, first author ([DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030)) · Main Award Finalist at the AI·SW-Centered University Excellent Project Competition (Sogang's representative, 18 of 60 teams)
 
+Full materials (Korean): [AI·SW competition slides (PDF)]({{ '/assets/slides/soundpilot-agent.pdf' | relative_url }}) · [Capstone poster (PDF)]({{ '/assets/slides/soundpilot-poster.pdf' | relative_url }})
+
 ## Problem
 
 Current sound generation models have three limits. All sounds come out as one mixed waveform, so you cannot edit just one of them. Summarizing the video as text loses fine motion, so timing drifts. And the model gives no clear evidence for why a sound is there. SoundPilot generates each sound on its own track, routes it to the right model, and grounds every sound in explicit visual evidence.
