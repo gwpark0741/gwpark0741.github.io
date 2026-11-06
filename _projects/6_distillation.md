@@ -36,15 +36,35 @@ In our run, starting from a random network (8.25% test accuracy), three gradient
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">Predictions on real test digits after training on the ten images.</figcaption>
 </figure>
 
-## Trajectory matching and its limits
+## Trajectory matching
 
-Trajectory matching (MTT) makes a student model trained on the synthetic data follow the parameter trajectory of a teacher trained on the real data, and updates the synthetic pixels to close the gap.
+The main method we studied is Matching Training Trajectories (MTT). A teacher network is trained on the real data, and a student network is trained on the synthetic data. The synthetic pixels are updated so that the student's parameter trajectory follows the teacher's, which packs the dataset's key features into a few images.
 
 <figure>
-  <img src="{{ '/assets/img/projects/distill_s6.jpg' | relative_url }}" alt="Trajectory matching" style="width: 100%;">
+  <img src="{{ '/assets/img/projects/distill_s6.jpg' | relative_url }}" alt="MTT paper and its distilled images" style="width: 100%;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Distilled images from MTT on CIFAR-100, Tiny ImageNet, and ImageNet subsets.</figcaption>
 </figure>
 
-It has three limits: the distilled data depends on the model architecture used to make it, unrolling the training trajectories is expensive, and it does not scale to large, complex datasets.
+<figure>
+  <img src="{{ '/assets/img/projects/distill_s7.jpg' | relative_url }}" alt="Teacher and student trajectories" style="width: 100%;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Two trajectories: the teacher trained on real data and the student trained on distilled data.</figcaption>
+</figure>
+
+This is a bi-level optimization. The inner loop trains the student on the synthetic images; the outer loop updates the synthetic images so the trained student does well on real data.
+
+<figure>
+  <img src="{{ '/assets/img/projects/distill_s8.jpg' | relative_url }}" alt="Inner and outer loop of trajectory matching" style="width: 100%;">
+</figure>
+
+## Where trajectory matching breaks down
+
+<figure>
+  <img src="{{ '/assets/img/projects/distill_s9.jpg' | relative_url }}" alt="Limits of trajectory matching" style="width: 100%;">
+</figure>
+
+- **Architecture dependence:** the images imitate one model's trajectory, so they are biased toward that model.
+- **Compute cost:** it needs expert trajectories first, then unrolls many training steps and backpropagates through them.
+- **Complex data:** on larger, more varied datasets the trajectories become unstable and the pixel values are hard to fit.
 
 ## Diffusion-based distillation
 
