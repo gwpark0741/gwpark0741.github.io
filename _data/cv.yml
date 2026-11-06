@@ -5,12 +5,95 @@
 # Only the keys RenderCV knows are allowed; unknown keys fail the workflow.
 # Valid top-level keys under `cv`: name, location, email, phone, website,
 # social_networks, sections. See https://docs.rendercv.com for the schema.
+#
+# 공개 저장소입니다: 심사 중 논문, 산학 기업명, 팀원 이름은 넣지 않습니다.
 cv:
   name: Gwangwoong Park
-  # email: you@example.com
-  # location: Seoul, South Korea
-  # website: https://gwpark0741.github.io
-  # social_networks:
-  #   - network: GitHub
-  #     username: gwpark0741
-  sections: {}
+  location: Seoul, South Korea
+  email: gwangwoong.park@gmail.com
+  website: https://gwpark0741.github.io
+  social_networks:
+    - network: GitHub
+      username: gwpark0741
+    - network: LinkedIn
+      username: gwangwoongpark
+  sections:
+    Education:
+      - institution: Sogang University
+        area: Business Administration and Computer Science and Engineering (Double Major)
+        degree: BS
+        location: Seoul, South Korea
+        start_date: 2023-03
+        end_date: 2027-02
+        highlights:
+          - "Expected graduation: Feb 2027"
+          - "Presidential Award for Academic Excellence (Fall 2025, top 1% semester GPA)"
+          - "Dean's List (Fall 2024, Fall 2025; top 3% semester GPA)"
+          - "Beta Gamma Sigma (2025) and Alpha Sigma Nu (2025) honor societies"
+    Experience:
+      - company: NLP & ISDS Lab, Sogang University
+        position: "Undergraduate Research Intern (Advisor: Prof. Du-Seong Chang)"
+        location: Seoul, South Korea
+        start_date: 2026-01
+        end_date: present
+        highlights:
+          - "Research interests: multimodal understanding, representation learning, generative models, and vision-language-action models"
+          - "Lab seminars: an overview of diffusion models, and audio-aware robot policies (MultiGen, HEAR)"
+    Publications:
+      - title: Automatic Multi-Track Sound Metadata Generation via Hierarchical Video Analysis Using Vision Language Models
+        authors:
+          - "*Gwangwoong Park*"
+          - Youngwoo Cho
+          - Suhwan Tcha
+          - Jaewon Choi
+          - Du-Seong Chang
+        journal: Korea Computer Congress (KCC 2026), pp. 2466–2468
+        date: 2026-06
+        url: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030
+    Projects:
+      - name: SoundPilot — Sound Design Agent for Multi-Track Audio
+        date: Spring 2026
+        highlights:
+          - "Capstone Design project. Defined the problem and designed the agent pipeline: scene split, VLM object identification, SAM 3 tracking, tool-calling agents on a shared sound timeline, and routing to video-to-audio, text-to-audio, and text-to-speech models"
+          - "Measured run-to-run variance of VLM cut detection and replaced it with a deterministic detector for stable results"
+          - "Gold Prize (1st place) at the Sogang Capstone Design Competition; KCC 2026 accepted (first author); Main Award Finalist at the AI·SW-Centered University Excellent Project Competition"
+      - name: Assistive Board-Game Robot (in progress)
+        date: Sep 2026 – present
+        highlights:
+          - "Team lead. Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)"
+          - "Designed the hardware and ordered parts: SO-101 leader and follower arms, top and wrist cameras, and gripper FSR tactile sensors read by an ESP32"
+          - "Plan: VLA fine-tuning on teleoperated demonstrations, staged-reward RL in Isaac Lab, and sim-to-real transfer; voice commands for users with limited hand mobility"
+      - name: Airport Delay Network
+        date: Nov 2025
+        highlights:
+          - "CAU × Sogang University Data Hackathon. Led insight discovery: modeled delay propagation across airports with PageRank and visualized it; Excellence Award"
+      - name: Movie Recommendation with NeuMF
+        date: 2025
+        highlights:
+          - "Basic Recommender Systems course (A+). Designed, trained, and tuned a NeuMF model for user and movie embeddings"
+      - name: Squat Form Assessment
+        date: 2025
+        highlights:
+          - "Parrot (Sogang University Data Science Society). Compared XGBoost, an LSTM on joint-angle sequences, and a video ViT; built the MediaPipe test pipeline for real user videos, handled occluded joints, and made a web demo with per-rep scores and feedback"
+      - name: Diffusion-Based Dataset Distillation
+        date: 2025
+        highlights:
+          - "AI Data Analysis, joint undergraduate–graduate course (A+). Reviewed the limits of trajectory matching and explored generative approaches to dataset distillation"
+    Honors:
+      - label: Nov 2026
+        details: AI·SW-Centered University Excellent Project Competition — Main Award Finalist as Sogang's representative (18 of 60 teams)
+      - label: Spring 2026
+        details: Sogang Capstone Design Competition — Gold Prize (1st place)
+      - label: Fall 2025
+        details: Presidential Award for Academic Excellence, Sogang University
+      - label: Nov 2025
+        details: CAU × Sogang University Data Hackathon — Excellence Award
+    Teaching and Mentoring:
+      - label: Fall 2025
+        details: Teaching Assistant, Introduction to AI Programming, Sogang University
+      - label: Fall 2025
+        details: Mentor, Parrot (Sogang University Data Science Society)
+      - label: "2024"
+        details: Online Mentor, KT LAN-Night School
+      - label: Oct 2023 – Feb 2025
+        details: Education volunteer at a local children's center, KOSAF scholarship program (439 hours)
