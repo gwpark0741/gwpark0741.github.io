@@ -12,6 +12,8 @@ category: research
 
 **Nov 2025 · CAU × Sogang University Data Hackathon · Excellence Award · My role: insight discovery and network modeling**
 
+Full materials (Korean): [Hackathon slides (PDF)]({{ '/assets/slides/airport-delay.pdf' | relative_url }})
+
 <figure>
   <img src="{{ '/assets/img/projects/airport_award.jpg' | relative_url }}" alt="Excellence Award plaque, CAU × Sogang University Data Hackathon" style="width: 100%; max-width: 420px;">
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">Excellence Award, CAU × Sogang University Data Hackathon (Nov 15, 2025).</figcaption>

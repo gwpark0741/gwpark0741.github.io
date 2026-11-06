@@ -12,6 +12,8 @@ category: research
 
 **2025 · Parrot (Sogang University Data Science Society) · My role: keypoint preprocessing for the LSTM, the MediaPipe test environment, occlusion handling, and the web demo**
 
+Full materials (Korean): [Project slides (PDF)]({{ '/assets/slides/squat-form.pdf' | relative_url }})
+
 An AI home-training coach: the user films a squat from the front or the side, and the system scores each rep with feedback.
 
 - **Side view:** neutral spine, heels on the ground, range of motion

@@ -76,9 +76,9 @@ cv:
         highlights:
           - "Parrot (Sogang University Data Science Society). Compared XGBoost, an LSTM on joint-angle sequences, and a video ViT; built the MediaPipe test pipeline for real user videos, handled occluded joints, and made a web demo with per-rep scores and feedback"
       - name: Diffusion-Based Dataset Distillation
-        date: 2025
+        date: Fall 2025
         highlights:
-          - "AI Data Analysis, joint undergraduate–graduate course (A+). Reviewed the limits of trajectory matching and explored generative approaches to dataset distillation"
+          - "AI Data Analysis, joint undergraduate–graduate course (A+). Ran a live MNIST demo where ten distilled images train a LeNet to 88.7% accuracy, and compared trajectory matching with diffusion-based distillation (D4M)"
     Honors:
       - label: Nov 2026
         details: AI·SW-Centered University Excellent Project Competition — Main Award Finalist as Sogang's representative (18 of 60 teams)
