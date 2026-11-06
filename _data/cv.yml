@@ -67,10 +67,10 @@ cv:
         date: Nov 2025
         highlights:
           - "CAU × Sogang University Data Hackathon. Led insight discovery: modeled delay propagation across airports with PageRank and visualized it; Excellence Award"
-      - name: Movie Recommendation with NeuMF
+      - name: Movie Recommendation with Item Embeddings
         date: 2025
         highlights:
-          - "Basic Recommender Systems course (A+). Designed, trained, and tuned a NeuMF model for user and movie embeddings"
+          - "Basic Recommender Systems course (A+). Learned MovieLens movie embeddings from co-watched pairs with genre information, and recommended unseen movies by cosine similarity to a user taste vector"
       - name: Squat Form Assessment
         date: 2025
         highlights:
@@ -78,7 +78,7 @@ cv:
       - name: Diffusion-Based Dataset Distillation
         date: Fall 2025
         highlights:
-          - "AI Data Analysis, joint undergraduate–graduate course (A+). Ran a live MNIST demo where ten distilled images train a LeNet to 88.7% accuracy, and compared trajectory matching with diffusion-based distillation (D4M)"
+          - "AI Data Analysis, joint undergraduate–graduate course (A+). Built a live MNIST demo with the original method's code and released distilled images (ten images train a LeNet to 88.7%), and compared trajectory matching with diffusion-based distillation (D4M)"
     Honors:
       - label: Nov 2026
         details: AI·SW-Centered University Excellent Project Competition — Main Award Finalist as Sogang's representative (18 of 60 teams)
