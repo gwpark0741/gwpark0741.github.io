@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Seminar: Diffusion Models, from DDPM to Diffusion LLMs"
+title: "Paper Seminar: Diffusion Models, from DDPM to Diffusion LLMs"
 date: 2026-08-05 00:00:00
 description: "Lab seminar slides on diffusion basics (DDPM, LDM, DiT, flow matching, MMDiT) and two recent uses: video-to-audio (MMAudio) and diffusion language models (LLaDA)"
-tags: [seminar, diffusion, generative-models]
+tags: [paper-review, seminar, diffusion, generative-models]
 categories: [Research]
 giscus_comments: false
 related_posts: false
