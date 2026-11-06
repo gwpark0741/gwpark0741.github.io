@@ -18,7 +18,7 @@ Dataset distillation compresses a whole training set into a few synthetic images
 
 ## Ten images instead of sixty thousand
 
-We prepared a live demo for the class using the original dataset distillation method on MNIST. The ten images below, one per digit, were learned so that a LeNet trained on them generalizes to real digits.
+For the class we built a live demo on MNIST with the original dataset distillation code and the distilled images released by its authors (Wang et al., 2018). The ten images below, one per digit, are learned so that a LeNet trained on them generalizes to real digits.
 
 <figure>
   <img src="{{ '/assets/img/projects/distill_mnist.jpg' | relative_url }}" alt="Ten distilled MNIST images, one per class" style="width: 100%;">
@@ -29,7 +29,7 @@ We prepared a live demo for the class using the original dataset distillation me
   <img src="{{ '/assets/img/projects/distill_compare.jpg' | relative_url }}" alt="Original MNIST versus ten distilled images" style="width: 100%;">
 </figure>
 
-Starting from a random network (8.25% test accuracy), three gradient steps on these ten images raised accuracy to **88.66%** on the 10,000 test images, in under a second. That is about 90% of what training on all 60,000 images reaches, with 6,000 times less data.
+In our run, starting from a random network (8.25% test accuracy), three gradient steps on these ten images raised accuracy to **88.66%** on the 10,000 test images, in under a second. That is about 90% of what training on all 60,000 images reaches, with 6,000 times less data.
 
 <figure>
   <img src="{{ '/assets/img/projects/distill_predictions.jpg' | relative_url }}" alt="Predictions on test digits" style="width: 100%;">
