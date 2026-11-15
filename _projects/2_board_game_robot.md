@@ -12,7 +12,7 @@ category: research
 
 **Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
 
-_Status: hardware designed and parts ordered (Oct 2026); 3D printing and assembly are next. This page will be updated as the work progresses._
+_Status: hardware designed and parts ordered (Oct 2026); 3D printing of the arm parts started (Nov 2026), and assembly is next. This page will be updated as the work progresses._
 
 ## Why
 
@@ -54,6 +54,24 @@ I designed the full parts list and wiring before ordering, comparing an overseas
   <img src="{{ '/assets/img/projects/robot_fsr.jpg' | relative_url }}" alt="FSR voltage divider circuit with ESP32" style="width: 100%;">
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">Tactile sensing circuit: two FSRs with 10 kΩ divider resistors into ESP32 GPIO34 and GPIO35, and the breadboard layout.</figcaption>
 </figure>
+
+## 3D printing
+
+The structural parts of both arms are 3D-printed. The workflow was: download the parts from the official [SO-101 repository](https://github.com/TheRobotStudio/SO-ARM100), arrange them on build plates in Bambu Studio (three plates for the follower and three for the leader), slice them, and print on a Bambu Lab A1 mini in eSUN PLA+ (0.4 mm nozzle, 0.2 mm layers, 15% infill, 2 walls).
+
+<figure>
+  <img src="{{ '/assets/img/projects/robot_print_plates.jpg' | relative_url }}" alt="Print plates for the follower and leader arms" style="width: 100%;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Print plates in Bambu Studio. Top row: follower. Bottom row: leader.</figcaption>
+</figure>
+
+<figure>
+  <video controls muted loop playsinline preload="metadata" poster="{{ '/assets/img/projects/robot_printing_poster.jpg' | relative_url }}" style="width: 100%; max-width: 340px;">
+    <source src="{{ '/assets/video/so101-printing.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Printing one of the arm plates (Nov 2026).</figcaption>
+</figure>
+
+Print files, sliced for the A1 mini: [Follower (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Follower_SO101.3mf' | relative_url }}) · [Leader (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Leader_SO101.3mf' | relative_url }})
 
 ## Simulation
 
