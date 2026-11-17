@@ -12,7 +12,7 @@ category: research
 
 **Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
 
-_Status: hardware designed and parts ordered (Oct 2026); 3D printing of the arm parts started (Nov 2026), and assembly is next. This page will be updated as the work progresses._
+_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Simulation environment is running; calibration and data collection are next. This page will be updated as the work progresses._
 
 ## Why
 
@@ -73,7 +73,39 @@ The structural parts of both arms are 3D-printed. The workflow was: download the
 
 Print files, sliced for the A1 mini: [Follower (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Follower_SO101.3mf' | relative_url }}) · [Leader (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Leader_SO101.3mf' | relative_url }})
 
+## Assembly
+
+I assembled both arms from the printed parts and the servos. The servos are wired in a daisy chain per arm, and each arm connects to the PC through the powered USB hub.
+
+<figure>
+  <img src="{{ '/assets/img/projects/robot_unboxing.jpg' | relative_url }}" alt="Printed parts and servo boxes" style="width: 100%; max-width: 300px;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Printed parts and servo boxes, before assembly.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/assets/img/projects/robot_assembled.jpg' | relative_url }}" alt="Assembled leader and follower arms" style="width: 100%; max-width: 560px;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">The assembled leader and follower arms, connected to the PC through the USB hub (Nov 2026).</figcaption>
+</figure>
+
 ## Simulation
+
+I compared simulators for this project against six questions: does it ship an SO-101 model, does it save data in LeRobot format (so it can feed VLA training directly), can a leader arm drive it for extra demonstrations, does it run on a 24 GB RTX A5000, how hard is it to add a chess board and pieces, and has anyone done sim-to-real with it.
+
+I chose [LeIsaac](https://lightwheelai.github.io/leisaac/), an Isaac Lab extension for SO-101. It includes the follower arm, accepts a leader arm (or keyboard, gamepad) for teleoperation, converts recorded HDF5 demonstrations to LeRobot format, and can generate data automatically without a human operator. The chess environment is built on top of it: the board is generated in code (64 squares, adjustable size) and the pieces are low-poly USD models reused from the SO101-Chess repository. It renders on the A5000 server with the top and wrist cameras.
+
+<figure>
+  <video controls muted loop playsinline preload="metadata" poster="{{ '/assets/img/projects/leisaac_chess_poster.jpg' | relative_url }}" style="width: 100%; max-width: 640px;">
+    <source src="{{ '/assets/video/leisaac-chess.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Our chess environment: wrist camera (left) and top camera (right). The arm only waves its joints to check that rendering works; this is not a learned policy.</figcaption>
+</figure>
+
+<figure>
+  <video controls muted loop playsinline preload="metadata" poster="{{ '/assets/img/projects/leisaac_pickorange_poster.jpg' | relative_url }}" style="width: 100%; max-width: 640px;">
+    <source src="{{ '/assets/video/leisaac-pickorange.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">LeIsaac's built-in kitchen example (PickOrange), run on the same server, with the same test motion.</figcaption>
+</figure>
 
 <figure>
   <img src="{{ '/assets/img/projects/robot_isaacsim.jpg' | relative_url }}" alt="SO-101 in Isaac Sim" style="width: 100%; max-width: 560px;">
