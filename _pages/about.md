@@ -98,6 +98,15 @@ My research is driven by a simple question: how can we make models genuinely und
   <h2>Publications</h2>
   <ol class="pub-list">
     <li>
+      <div class="pub-title">오디오 언어모델의 제외형 질문 조건 반영 분석과 반사실적 데이터 학습을 통한 개선</div>
+      <div class="pub-authors"><strong>박광웅</strong>, 정도은, 김민정, 오윤석, 조영우, 장두성</div>
+      <div class="pub-tags">
+        <span class="pub-tag primary">KSC 2026</span>
+        <span class="pub-tag">한국정보과학회 한국컴퓨터종합학술대회</span>
+        <span class="pub-tag">포스터 (채택)</span>
+      </div>
+    </li>
+    <li>
       <div class="pub-title">비전 언어 모델(VLM) 기반 계층적 비디오 분석을 통한 멀티트랙 사운드 메타데이터 생성 파이프라인 개발</div>
       <div class="pub-authors"><strong>박광웅</strong>, 조영우, 차수환, 최재원, 장두성</div>
       <div class="pub-tags">

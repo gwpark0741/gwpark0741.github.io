@@ -40,6 +40,16 @@ cv:
           - "Research interests: multimodal understanding, representation learning, generative models, and vision-language-action models"
           - "Lab seminars: an overview of diffusion models, and audio-aware robot policies (MultiGen, HEAR)"
     Publications:
+      - title: Analyzing Exclusion-Query Conditioning in Audio Language Models and Improving It with Counterfactual Data Training
+        authors:
+          - "*Gwangwoong Park*"
+          - Doeun Jeong
+          - Minjeong Kim
+          - Yoonseok Oh
+          - Youngwoo Cho
+          - Du-Seong Chang
+        journal: Korea Computer Congress (KSC 2026), poster, accepted
+        date: 2026-11
       - title: Automatic Multi-Track Sound Metadata Generation via Hierarchical Video Analysis Using Vision Language Models
         authors:
           - "*Gwangwoong Park*"
