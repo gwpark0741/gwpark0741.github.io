@@ -96,6 +96,20 @@ I assembled both arms from the printed parts and the servos. The servos are wire
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">The assembled leader and follower arms, connected to the PC through the USB hub (Nov 2026).</figcaption>
 </figure>
 
+## Troubleshooting: teleoperation kept cutting out
+
+**Symptom.** With the first teleoperation tests, the follower arm was weak and the connection kept dropping, each time with a warning beep.
+
+**Diagnosis.**
+
+1. The follower's servos are 12 V, but I was powering it from a 5 V / 5 A adapter. That was my first suspect.
+2. I measured the supply voltage while operating the arm. It stayed at only 4–5 V instead of 12 V.
+3. So the weak torque and the dropouts came from undervoltage, not from software or calibration.
+
+**Fix.** I bought a 12 V / 5 A adapter and connected it to the follower. Teleoperation then ran without dropouts.
+
+**Lesson.** Check the rated voltage of each arm's servos against its supply before debugging software, and measure the voltage under load, not just at idle.
+
 ## Simulation
 
 I compared simulators for this project against six questions: does it ship an SO-101 model, does it save data in LeRobot format (so it can feed VLA training directly), can a leader arm drive it for extra demonstrations, does it run on a 24 GB RTX A5000, how hard is it to add a chess board and pieces, and has anyone done sim-to-real with it.
