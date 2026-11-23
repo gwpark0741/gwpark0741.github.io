@@ -12,7 +12,7 @@ category: research
 
 **Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
 
-_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; data collection is next. This page will be updated as the work progresses._
+_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; next is swapping in a camera-mount gripper and starting data collection. This page will be updated as the work progresses._
 
 ## Why
 
@@ -109,6 +109,10 @@ I assembled both arms from the printed parts and the servos. The servos are wire
 **Fix.** I bought a 12 V / 5 A adapter and connected it to the follower. Teleoperation then ran without dropouts.
 
 **Lesson.** Check the rated voltage of each arm's servos against its supply before debugging software, and measure the voltage under load, not just at idle.
+
+## Next: wrist camera mount
+
+The stock gripper has no place for the wrist camera. I am replacing the follower's gripper with a camera-integrated version and printing it on the A1 mini. After that, the wrist camera goes on and the arm is ready to record demonstrations.
 
 ## Simulation
 
