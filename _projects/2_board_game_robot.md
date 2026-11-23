@@ -12,7 +12,7 @@ category: research
 
 **Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
 
-_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; data collection is next. This page will be updated as the work progresses._
+_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; next is swapping in a camera-mount gripper and starting data collection. This page will be updated as the work progresses._
 
 ## Why
 
@@ -95,6 +95,24 @@ I assembled both arms from the printed parts and the servos. The servos are wire
   <img src="{{ '/assets/img/projects/robot_assembled.jpg' | relative_url }}" alt="Assembled leader and follower arms" style="width: 100%; max-width: 560px;">
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">The assembled leader and follower arms, connected to the PC through the USB hub (Nov 2026).</figcaption>
 </figure>
+
+## Troubleshooting: teleoperation kept cutting out
+
+**Symptom.** With the first teleoperation tests, the follower arm was weak and the connection kept dropping, each time with a warning beep.
+
+**Diagnosis.**
+
+1. The follower's servos are 12 V, but I was powering it from a 5 V / 5 A adapter.
+2. I measured the supply voltage while operating the arm. It stayed at only 4–5 V instead of 12 V.
+3. So the weak torque and the dropouts came from undervoltage, not from software or calibration.
+
+**Fix.** I bought a 12 V / 5 A adapter and connected it to the follower. Teleoperation then ran without dropouts.
+
+**Lesson.** Check the rated voltage of each arm's servos against its supply before debugging software, and measure the voltage under load, not just at idle.
+
+## Next: wrist camera mount
+
+The stock gripper has no place for the wrist camera. I am replacing the follower's gripper with a camera-integrated version and printing it on the A1 mini. After that, the wrist camera goes on and the arm is ready to record demonstrations.
 
 ## Simulation
 
