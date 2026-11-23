@@ -102,7 +102,7 @@ I assembled both arms from the printed parts and the servos. The servos are wire
 
 **Diagnosis.**
 
-1. The follower's servos are 12 V, but I was powering it from a 5 V / 5 A adapter. That was my first suspect.
+1. The follower's servos are 12 V, but I was powering it from a 5 V / 5 A adapter.
 2. I measured the supply voltage while operating the arm. It stayed at only 4–5 V instead of 12 V.
 3. So the weak torque and the dropouts came from undervoltage, not from software or calibration.
 
