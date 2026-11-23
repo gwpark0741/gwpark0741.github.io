@@ -12,7 +12,7 @@ category: research
 
 **Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
 
-_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Simulation environment is running; calibration and data collection are next. This page will be updated as the work progresses._
+_Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; data collection is next. This page will be updated as the work progresses._
 
 ## Why
 
@@ -69,6 +69,15 @@ The structural parts of both arms are 3D-printed. The workflow was: download the
     <source src="{{ '/assets/video/so101-printing.mp4' | relative_url }}" type="video/mp4">
   </video>
   <figcaption style="font-size: 0.8rem; opacity: 0.7;">Printing one of the arm plates (Nov 2026).</figcaption>
+</figure>
+
+Once both arms were calibrated, I tested teleoperation: moving the leader by hand makes the follower copy the motion in real time. This is how the demonstrations for the VLA will be recorded.
+
+<figure>
+  <video controls muted loop playsinline preload="metadata" poster="{{ '/assets/img/projects/robot_teleop_poster.jpg' | relative_url }}" style="width: 100%; max-width: 340px;">
+    <source src="{{ '/assets/video/so101-teleop.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Teleoperation test (Nov 2026): the follower arm (back) follows the leader arm (front) moved by hand.</figcaption>
 </figure>
 
 Print files, sliced for the A1 mini: [Follower (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Follower_SO101.3mf' | relative_url }}) · [Leader (3mf)]({{ '/assets/files/so101/BambuLabA1mini_Leader_SO101.3mf' | relative_url }})
