@@ -103,7 +103,7 @@ My research is driven by a simple question: how can we make models genuinely und
       <div class="pub-tags">
         <span class="pub-tag primary">KSC 2026</span>
         <span class="pub-tag">한국정보과학회 한국소프트웨어종합학술대회</span>
-        <span class="pub-tag">포스터 (채택)</span>
+        <span class="pub-tag">채택</span>
       </div>
     </li>
     <li>
