@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Audyssey
-description: A multi-track agent that splits a video's audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to my KSC 2026 paper.
+description: A multi-track agent that splits a video's audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to two KSC 2026 papers.
 importance: 2
 meta: "Fall 2026 · Capstone Design · In progress"
 img: /assets/img/projects/audyssey_tracks.jpg
@@ -68,7 +68,11 @@ My part is bringing the model into the pipeline: connecting it to the GPU tools 
 
 The final setup answers in 81 ms (median, local vLLM, hardware not recorded) and scored 0.846 on the held-out test set. Gemini scores higher (0.975 or more on dev) but takes about 2.5 seconds per reply. The evaluation set has 238 requests written by Claude, Codex, and Gemini, 30 of which a person checked. Conditions: 73 dev requests, 5 runs each, split by request template, 95% interval about 0.15 wide, so 0.892 and 0.906 are not statistically different. The demo uses Gemini to fill in values, so these scores are for the research setup, not for the demo.
 
-## Related paper: KSC 2026
+## Related papers: KSC 2026
+
+Two KSC 2026 papers were written during this project.
+
+### Exclusion questions in audio language models (first author)
 
 An audio language model that checks tracks must answer "is any sound other than the target audible?" correctly. Qwen2.5-Omni 7B answered "is a refrigerator audible?" correctly for an alarm clip but got "is any sound other than a refrigerator audible?" wrong, which would let a track without its target sound pass. My first-author KSC 2026 paper (poster, accepted; listed on the About page) analyzes why models ignore the condition in these exclusion questions and fixes it with counterfactual training data.
 
@@ -76,7 +80,18 @@ An audio language model that checks tracks must answer "is any sound other than 
 - General audio understanding (MMAU test-mini) did not drop significantly.
 - Conditions: 220 human-checked separated tracks with 3 question pairs each (660 pairs), LoRA training on 4,800 examples for 150 steps, mean of 3 seeds. The paper also reports that errors on correct tracks rose (7B: 3.6 to 13.2%).
 
-This trained model is not part of the Audyssey pipeline yet. The system's Reviewer uses the Judge and CLAP scores above.
+The system's Reviewer uses the Judge and CLAP scores above, not this trained model.
+
+### Prompt rewording in text-guided audio separation (second author)
+
+Text-guided separation models take a sentence that describes the target sound. The paper asks how much the separated audio changes when the same sound is described in different words. SAM Audio, which the Audyssey Separator uses, is one of the three models studied, together with AudioSep and CLAPSep.
+
+- Each of 90 target sounds was mixed into 7 inputs (alone, plus 6 mixtures with urban background sound, white or pink noise, or another sound effect) and separated with 3 phrasings of the same description, giving 1,890 outputs per model.
+- Changing only the wording changed the output waveform by 2.55% (AudioSep), 5.01% (CLAPSep), and 7.76% (SAM Audio) on average.
+- On 540 mixed inputs per model, one of the two alternative phrasings gave a higher SI-SDR than the baseline phrasing for about two thirds of inputs (65.9, 67.8, and 68.5%). The average gain of the best phrasing was 1.05, 1.19, and 3.17 dB, while the median gain was only 0.13, 0.33, and 0.07 dB.
+- For SAM Audio, changing the random seed moved the output more than changing the wording, so the seed was held fixed.
+
+The paper suggests asking for the same sound in several phrasings and choosing among the candidates. The better candidate was found afterwards by comparing with the original sound, so choosing it on real recordings without the original, and whether listeners prefer it, still needs to be tested.
 
 ## System and engineering
 

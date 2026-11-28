@@ -50,6 +50,16 @@ cv:
           - Du-Seong Chang
         journal: Korea Software Congress (KSC 2026), poster, accepted
         date: 2026-11
+      - title: Variation under Prompt Rewording in Text-Guided Audio Separation
+        authors:
+          - Doeun Jeong
+          - "*Gwangwoong Park*"
+          - Minjeong Kim
+          - Youngwoo Cho
+          - Yoonseok Oh
+          - Du-Seong Chang
+        journal: Korea Software Congress (KSC 2026), accepted
+        date: 2026-11
       - title: Automatic Multi-Track Sound Metadata Generation via Hierarchical Video Analysis Using Vision Language Models
         authors:
           - "*Gwangwoong Park*"
