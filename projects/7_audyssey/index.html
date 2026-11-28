@@ -1,0 +1,152 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Audyssey | Gwangwoong Park </title> <meta name="author" content="Gwangwoong Park"> <meta name="description" content="A multi-track agent that splits a video's audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to two KSC 2026 papers."> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://gwpark0741.github.io/projects/7_audyssey/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Gwangwoong Park </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Audyssey</h1> <p class="post-description">A multi-track agent that splits a video's audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to two KSC 2026 papers.</p> </header> <article> <link rel="stylesheet" href="/assets/project-page.css"> <p><strong>Fall 2026 · Capstone Design · In progress · My role: system architecture and integration, Planner/Validator, Router, integration of the in-house generation model</strong></p> <p>A five-person team project, still in progress. This page covers my parts only. I set the designs, reviewed and approved the results, and implemented them with AI coding agents (Claude Code).</p> <h2 id="problem">Problem</h2> <p>Current video-to-audio models return one mixed track, so you cannot turn one sound down or fix one sound. Audyssey takes a video of up to 30 seconds, separates its audio into one track per sound source, generates sounds the video does not contain when the user asks for them, and exports the edited video and per-track audio. A silent video gets generated sound only (no speech).</p> <h2 id="pipeline">Pipeline</h2> <figure> <div style="display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; align-items: center; font-size: 0.8rem;"> <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Video</span> → <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Planner</span> → <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Validator</span> → <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Separator / Generator</span> → <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Reviewer</span> → <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Multi-track mix</span> </div> <figcaption style="font-size: 0.8rem; opacity: 0.7;">The Validator can send a plan back once, and the Reviewer can send a track back up to three times. The Router turns a text command into one of eight edit commands on the mix.</figcaption> </figure> <table> <thead> <tr> <th>Module</th> <th>What it does</th> </tr> </thead> <tbody> <tr> <td>Planner</td> <td>Reads the video and its audio (Gemini, 2 frames per second) and lists the sound sources with a type, a description, and time spans.</td> </tr> <tr> <td>Validator</td> <td>A different model (Qwen3-VL-8B, video only, 5 frames per second) checks each source against the video and rejects sources with no evidence. Sources that pass are kept, and only the rest are planned again (at most 2 rounds).</td> </tr> <tr> <td>Separator</td> <td>Splits one source out of the original audio with SAM Audio, ranking several candidates per sound.</td> </tr> <tr> <td>Generator</td> <td>Makes sounds that are not in the video from the video and a text description, using an in-house generation model our team developed to raise selectivity (paper in preparation).</td> </tr> <tr> <td>Reviewer</td> <td>Scores each separated track with the SAM Audio Judge, and each generated track with a CLAP-based margin. A track that misses the bar is retried up to 3 times.</td> </tr> <tr> <td>Router</td> <td>Turns “bgm half as loud” into one of 8 edit commands, or asks back when the request is unclear or cannot be done.</td> </tr> </tbody> </table> <p>I wrote the Planner and Validator (PRs #8, #28, #41), the Separator and Judge setup (#13, #18, #35), the Router (#38, #39), and the generation path that connects the in-house model to the pipeline (#23 to #25). I also built the server split, the Docker images, and the CI/CD.</p> <h2 id="result">Result</h2> <figure> <img src="/assets/img/projects/audyssey_tracks.jpg" alt="Audyssey editor showing the pipeline status, the text edit bar, and one waveform track per sound source" style="width: 100%;"> <figcaption style="font-size: 0.8rem; opacity: 0.7;">Editor after one run: pipeline status, the text edit bar, and one track per source (music, dialogue, shouts, sword sounds) plus the rest of the original audio. The video frame is cropped out.</figcaption> </figure> <p>In one demo run on a 9.8-second animated fight clip, the Planner proposed 5 sources and the Validator rejected one that had no visual evidence (a body strike at 7.7 to 8.3 s). The 4 remaining sources were separated, and the Judge passed all 4 on the first try (overall 3.83 to 4.76). The whole run took about 277 seconds, including model loading. This is a single clip, not a benchmark.</p> <h2 id="selective-sound-generation">Selective sound generation</h2> <p>A sound that is missing from the video has to be generated, and the model must make only the sound that was asked for, not extra sounds mixed in. Our team developed an in-house generation model to raise this selectivity, and it serves as the Generator in Audyssey. The research is not published yet and a paper is in preparation, so this page gives no method or numbers.</p> <p>My part is bringing the model into the pipeline: connecting it to the GPU tools server, checking each generated track with a CLAP-based score, and retrying a track that misses the bar (PRs #23 to #25).</p> <h2 id="router-text-to-edit-commands">Router: text to edit commands</h2> <table> <thead> <tr> <th>Setup</th> <th>macro-F1 (dev)</th> </tr> </thead> <tbody> <tr> <td>Keyword rules</td> <td>0.185</td> </tr> <tr> <td>Small local model alone (Qwen2.5-3B)</td> <td>0.553</td> </tr> <tr> <td>Final: decision model (H2O-Lightning-4B) plus Qwen2.5-3B for values, plus a rule guardrail</td> <td>0.906</td> </tr> </tbody> </table> <p>The final setup answers in 81 ms (median, local vLLM, hardware not recorded) and scored 0.846 on the held-out test set. Gemini scores higher (0.975 or more on dev) but takes about 2.5 seconds per reply. The evaluation set has 238 requests written by Claude, Codex, and Gemini, 30 of which a person checked. Conditions: 73 dev requests, 5 runs each, split by request template, 95% interval about 0.15 wide, so 0.892 and 0.906 are not statistically different. The demo uses Gemini to fill in values, so these scores are for the research setup, not for the demo.</p> <h2 id="related-papers-ksc-2026">Related papers: KSC 2026</h2> <p>Two KSC 2026 papers were written during this project.</p> <h3 id="exclusion-questions-in-audio-language-models-first-author">Exclusion questions in audio language models (first author)</h3> <p>An audio language model that checks tracks must answer “is any sound other than the target audible?” correctly. Qwen2.5-Omni 7B answered “is a refrigerator audible?” correctly for an alarm clip but got “is any sound other than a refrigerator audible?” wrong, which would let a track without its target sound pass. My first-author KSC 2026 paper (poster, accepted; listed on the About page) analyzes why models ignore the condition in these exclusion questions and fixes it with counterfactual training data.</p> <ul> <li>Pair accuracy (both versions of a question answered correctly) rose from 5.2, 24.8, and 56.2% to 83.5, 83.9, and 84.5% for Qwen2.5-Omni 3B, 7B, and Qwen3-Omni 30B-A3B.</li> <li>General audio understanding (MMAU test-mini) did not drop significantly.</li> <li>Conditions: 220 human-checked separated tracks with 3 question pairs each (660 pairs), LoRA training on 4,800 examples for 150 steps, mean of 3 seeds. The paper also reports that errors on correct tracks rose (7B: 3.6 to 13.2%).</li> </ul> <p>The system’s Reviewer uses the Judge and CLAP scores above, not this trained model.</p> <h3 id="prompt-rewording-in-text-guided-audio-separation-second-author">Prompt rewording in text-guided audio separation (second author)</h3> <p>Text-guided separation models take a sentence that describes the target sound. The paper asks how much the separated audio changes when the same sound is described in different words. SAM Audio, which the Audyssey Separator uses, is one of the three models studied, together with AudioSep and CLAPSep.</p> <ul> <li>Each of 90 target sounds was mixed into 7 inputs (alone, plus 6 mixtures with urban background sound, white or pink noise, or another sound effect) and separated with 3 phrasings of the same description, giving 1,890 outputs per model.</li> <li>Changing only the wording changed the output waveform by 2.55% (AudioSep), 5.01% (CLAPSep), and 7.76% (SAM Audio) on average.</li> <li>On 540 mixed inputs per model, one of the two alternative phrasings gave a higher SI-SDR than the baseline phrasing for about two thirds of inputs (65.9, 67.8, and 68.5%). The average gain of the best phrasing was 1.05, 1.19, and 3.17 dB, while the median gain was only 0.13, 0.33, and 0.07 dB.</li> <li>For SAM Audio, changing the random seed moved the output more than changing the wording, so the seed was held fixed.</li> </ul> <p>The paper suggests asking for the same sound in several phrasings and choosing among the candidates. The better candidate was found afterwards by comparing with the original sound, so choosing it on real recordings without the original, and whether listeners prefer it, still needs to be tested.</p> <h2 id="system-and-engineering">System and engineering</h2> <p>The GPU models (SAM Audio, the Judge, SAM 3, the generation model, CLAP) run on a GPU tools server. The app server has no GPU and calls it over HTTP with a token. The split was needed because SAM Audio’s dependencies require <code class="language-plaintext highlighter-rouge">numpy&lt;2</code>, which conflicts with the rest of the app. Each tool can run as a stub, locally, or remotely, so a teammate can run only their own module with a real model. A demo run fits on one A100 80GB (peak 71,638 MiB).</p> <ul> <li>Image deployment after changing only <code class="language-plaintext highlighter-rouge">src/</code>: 650 s to 7 s, measured with a warm local registry cache. On GitHub runners it took 9 to 12 minutes before.</li> <li>Model loading: the first Judge call took 32.6 s, and later calls about 0.3 s per source (one run).</li> <li>Tests: 455 unit tests at PR #52. Eight edit commands go through the same checks whether they come from a button, the Router, or an agent.</li> </ul> <h2 id="limits-and-next-steps">Limits and next steps</h2> <p>The demo is a single clip, no person has listened to the tracks to label them, and the generated-sound check (CLAP margin 0.0) has not been calibrated. Sources are processed one by one on a single server process, with no job queue or user accounts, so I make no claim about scale or time saved. Next steps are listening-based labels for the Judge and the generated-sound check, running the KSC model as the Reviewer, and publishing the in-house generation model.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Gwangwoong Park. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Research and course projects.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Papers in reverse chronological order.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-paper-seminar-audio-aware-robot-policies-multigen-amp-hear",
+        
+          title: "Paper Seminar: Audio-Aware Robot Policies (MultiGen &amp; HEAR)",
+        
+        description: "Seminar slides on two audio-aware robot policy papers: MultiGen (generative audio for sim-to-real) and HEAR (streaming auditory memory)",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/audio-robot-policy-seminar/";
+          
+        },
+      },{id: "post-paper-seminar-diffusion-models-from-ddpm-to-diffusion-llms",
+        
+          title: "Paper Seminar: Diffusion Models, from DDPM to Diffusion LLMs",
+        
+        description: "Lab seminar slides on diffusion basics (DDPM, LDM, DiT, flow matching, MMDiT) and two recent uses: video-to-audio (MMAudio) and diffusion language models (LLaDA)",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/diffusion-seminar/";
+          
+        },
+      },{id: "projects-soundpilot",
+          title: 'SoundPilot',
+          description: "A tool-calling agent that turns a silent video into editable multi-track sound. Capstone Gold Prize (1st place), KCC 2026 accepted, AI·SW competition Sponsor Company Award (Elice Group).",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_soundpilot/";
+            },},{id: "projects-assistive-board-game-robot",
+          title: 'Assistive Board-Game Robot',
+          description: "SO-101 arm with cameras and tactile sensing that moves pieces for players with limited hand mobility. In progress.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_board_game_robot/";
+            },},{id: "projects-airport-delay-network",
+          title: 'Airport Delay Network',
+          description: "Found which US airports spread morning delays and which absorb them in the evening, using time-conditioned PageRank. Data hackathon Excellence Award.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_airport_delay/";
+            },},{id: "projects-movie-recommendation-with-item-embeddings",
+          title: 'Movie Recommendation with Item Embeddings',
+          description: "Learned movie embeddings from co-watched pairs with genre information, then recommended unseen movies from a user&#39;s taste vector.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_movie_embeddings/";
+            },},{id: "projects-squat-form-assessment",
+          title: 'Squat Form Assessment',
+          description: "Scores each squat rep from a phone video on five form criteria. Compared XGBoost, LSTM, and a video ViT.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_posture/";
+            },},{id: "projects-diffusion-based-dataset-distillation",
+          title: 'Diffusion-Based Dataset Distillation',
+          description: "Ten synthetic images train MNIST to 88.7% accuracy. Compared trajectory matching with diffusion-based distillation.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_distillation/";
+            },},{id: "projects-audyssey",
+          title: 'Audyssey',
+          description: "A multi-track agent that splits a video&#39;s audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to two KSC 2026 papers.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_audyssey/";
+            },},{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/gwpark0741", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/gwangwoongpark", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
