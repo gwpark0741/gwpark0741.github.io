@@ -10,7 +10,7 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Fall 2026 · Capstone Design · In progress · My role: system architecture and integration, Planner/Validator, Separator quality gate, Router**
+**Fall 2026 · Capstone Design · In progress · My role: system architecture and integration, Planner/Validator, Router, integration of the in-house generation model**
 
 A five-person team project, still in progress. This page covers my parts only. I set the designs, reviewed and approved the results, and implemented them with AI coding agents (Claude Code).
 
@@ -37,11 +37,11 @@ Current video-to-audio models return one mixed track, so you cannot turn one sou
 | Planner   | Reads the video and its audio (Gemini, 2 frames per second) and lists the sound sources with a type, a description, and time spans.                                                                                             |
 | Validator | A different model (Qwen3-VL-8B, video only, 5 frames per second) checks each source against the video and rejects sources with no evidence. Sources that pass are kept, and only the rest are planned again (at most 2 rounds). |
 | Separator | Splits one source out of the original audio with SAM Audio, ranking several candidates per sound.                                                                                                                               |
-| Generator | Makes sounds that are not in the video from the video and a text description, using an in-house generation model our team developed (paper in preparation).                                                                     |
+| Generator | Makes sounds that are not in the video from the video and a text description, using an in-house generation model our team developed to raise selectivity (paper in preparation).                                                |
 | Reviewer  | Scores each separated track with the SAM Audio Judge, and each generated track with a CLAP-based margin. A track that misses the bar is retried up to 3 times.                                                                  |
 | Router    | Turns "bgm half as loud" into one of 8 edit commands, or asks back when the request is unclear or cannot be done.                                                                                                               |
 
-I wrote the Planner and Validator (PRs #8, #28, #41), the Separator and Judge setup (#13, #18, #35, #52), the Router (#38, #39), and the generation path that connects the in-house model to the pipeline (#23 to #25). I also built the server split, the Docker images, and the CI/CD.
+I wrote the Planner and Validator (PRs #8, #28, #41), the Separator and Judge setup (#13, #18, #35), the Router (#38, #39), and the generation path that connects the in-house model to the pipeline (#23 to #25). I also built the server split, the Docker images, and the CI/CD.
 
 ## Result
 
@@ -52,18 +52,11 @@ I wrote the Planner and Validator (PRs #8, #28, #41), the Separator and Judge se
 
 In one demo run on a 9.8-second animated fight clip, the Planner proposed 5 sources and the Validator rejected one that had no visual evidence (a body strike at 7.7 to 8.3 s). The 4 remaining sources were separated, and the Judge passed all 4 on the first try (overall 3.83 to 4.76). The whole run took about 277 seconds, including model loading. This is a single clip, not a benchmark.
 
-## Judge pass bar: 0.5 to 3.0
+## Selective sound generation
 
-The default pass threshold of the SAM Audio Judge was 0.5, below the 1 to 5 score range, so nothing was ever rejected and no retry ever ran. Changing a track's description to "church bells ringing", which is not in the video, still scored 1.80 and passed.
+A sound that is missing from the video has to be generated, and the model must make only the sound that was asked for, not extra sounds mixed in. Our team developed an in-house generation model to raise this selectivity, and it serves as the Generator in Audyssey. The research is not published yet and a paper is in preparation, so this page gives no method or numbers.
 
-I measured real scores on that clip. Correct tracks scored 3.83 to 4.76 (5 cases), and the same track with the wrong description scored 1.80, 1.58, and 1.30 over three tries. I set the bar to 3.0, between the two groups (PR #52).
-
-<figure>
-  <img src="{{ '/assets/img/projects/audyssey_judge_fail.jpg' | relative_url }}" alt="Audyssey track panel showing a failed quality check: judge overall 1.30 below 3.0 for the description church bells ringing" style="width: 100%; max-width: 360px;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">With a description that is not in the video, the track fails after three attempts (judge overall 1.30 < 3.0).</figcaption>
-</figure>
-
-Limits: this is one video, and no person listened to the tracks to label them. A wrong description of "a baby crying loudly" still scored 4.18 and passed, so the Judge score alone does not catch every wrong sound.
+My part is bringing the model into the pipeline: connecting it to the GPU tools server, checking each generated track with a CLAP-based score, and retrying a track that misses the bar (PRs #23 to #25).
 
 ## Router: text to edit commands
 
@@ -95,4 +88,4 @@ The GPU models (SAM Audio, the Judge, SAM 3, the generation model, CLAP) run on 
 
 ## Limits and next steps
 
-Only one video was used for the Judge bar and the demo, and the generated-sound check (CLAP margin 0.0) has not been calibrated. Sources are processed one by one on a single server process, with no job queue or user accounts, so I make no claim about scale or time saved. Next steps are listening-based labels for the Judge and the generated-sound check, running the KSC model as the Reviewer, and publishing the in-house generation model.
+The demo is a single clip, no person has listened to the tracks to label them, and the generated-sound check (CLAP margin 0.0) has not been calibrated. Sources are processed one by one on a single server process, with no job queue or user accounts, so I make no claim about scale or time saved. Next steps are listening-based labels for the Judge and the generated-sound check, running the KSC model as the Reviewer, and publishing the in-house generation model.
