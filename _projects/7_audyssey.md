@@ -12,7 +12,7 @@ category: research
 
 **Fall 2026 · Capstone Design · In progress · My role: system architecture and integration, Planner/Validator, Separator quality gate, Router**
 
-A five-person team project. Poster submitted to the 2026 Sogang Capstone Design Competition (final round on Dec 9, 2026). This page covers my parts only. I set the designs, reviewed and approved the results, and implemented them with AI coding agents (Claude Code).
+A five-person team project, still in progress. This page covers my parts only. I set the designs, reviewed and approved the results, and implemented them with AI coding agents (Claude Code).
 
 ## Problem
 
