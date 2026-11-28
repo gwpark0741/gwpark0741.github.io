@@ -74,7 +74,7 @@ Two KSC 2026 papers were written during this project.
 
 ### Exclusion questions in audio language models (first author)
 
-An audio language model that checks tracks must answer "is any sound other than the target audible?" correctly. Qwen2.5-Omni 7B answered "is a refrigerator audible?" correctly for an alarm clip but got "is any sound other than a refrigerator audible?" wrong, which would let a track without its target sound pass. My first-author KSC 2026 paper (poster, accepted; listed on the About page) analyzes why models ignore the condition in these exclusion questions and fixes it with counterfactual training data.
+An audio language model that checks tracks must answer "is any sound other than the target audible?" correctly. Qwen2.5-Omni 7B answered "is a refrigerator audible?" correctly for an alarm clip but got "is any sound other than a refrigerator audible?" wrong, which would let a track without its target sound pass. My first-author KSC 2026 paper (accepted; listed on the About page) analyzes why models ignore the condition in these exclusion questions and fixes it with counterfactual training data.
 
 - Pair accuracy (both versions of a question answered correctly) rose from 5.2, 24.8, and 56.2% to 83.5, 83.9, and 84.5% for Qwen2.5-Omni 3B, 7B, and Qwen3-Omni 30B-A3B.
 - General audio understanding (MMAU test-mini) did not drop significantly.
