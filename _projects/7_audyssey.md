@@ -2,7 +2,7 @@
 layout: page
 title: Audyssey
 description: A multi-track agent that splits a video's audio into one track per sound source, generates missing sounds on request, and edits each track from a text command. Work in progress; related to my KSC 2026 paper.
-importance: 1
+importance: 2
 meta: "Fall 2026 · Capstone Design · In progress"
 img: /assets/img/projects/audyssey_tracks.jpg
 category: research
