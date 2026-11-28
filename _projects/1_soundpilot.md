@@ -1,7 +1,7 @@
 ---
 layout: page
 title: SoundPilot
-description: A tool-calling agent that turns a silent video into editable multi-track sound. Capstone Gold Prize (1st place), KCC 2026 accepted, AI·SW Main Award Finalist.
+description: A tool-calling agent that turns a silent video into editable multi-track sound. Capstone Gold Prize (1st place), KCC 2026 accepted, AI·SW competition Sponsor Company Award (Elice Group).
 importance: 1
 meta: "Spring 2026 · Capstone Design"
 img: /assets/img/projects/1_soundpilot.jpg
@@ -12,9 +12,26 @@ category: research
 
 **Spring 2026 · Capstone Design · My role: problem definition and agent pipeline design**
 
-Gold Prize (1st place) at the Sogang Capstone Design Competition · KCC 2026 accepted, first author ([DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030)) · Main Award Finalist at the AI·SW-Centered University Excellent Project Competition (Sogang's representative, 18 of 60 teams)
+Gold Prize (1st place) at the Sogang Capstone Design Competition · KCC 2026 accepted, first author ([DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030)) · Sponsor Company Award (Elice Group) at the AI·SW-Centered University Excellent Project Competition, as Sogang's representative (18 of 60 teams reached the finals)
 
 Full materials (Korean): [AI·SW competition slides (PDF)]({{ '/assets/slides/soundpilot-agent.pdf' | relative_url }}) · [Capstone poster (PDF)]({{ '/assets/slides/soundpilot-poster.pdf' | relative_url }}) · [KCC 2026 poster (PDF)]({{ '/assets/slides/kcc-poster.pdf' | relative_url }})
+
+## At the competition
+
+<figure>
+  <img src="{{ '/assets/img/projects/soundpilot_award.jpg' | relative_url }}" alt="Receiving the Sponsor Company Award at the AI·SW-Centered University Excellent Project Competition" style="width: 100%;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Receiving the Sponsor Company Award (Elice Group) at the AI·SW-Centered University Excellent Project Competition.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/assets/img/projects/soundpilot_stage.jpg' | relative_url }}" alt="Presenting SoundPilot on stage" style="width: 100%;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Presenting SoundPilot on stage.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/assets/img/projects/soundpilot_booth.jpg' | relative_url }}" alt="Presenting SoundPilot at the poster booth" style="width: 100%; max-width: 420px;">
+  <figcaption style="font-size: 0.8rem; opacity: 0.7;">At the poster booth.</figcaption>
+</figure>
 
 ## Problem
 
