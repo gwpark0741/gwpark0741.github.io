@@ -2,7 +2,7 @@
 layout: page
 title: Movie Recommendation with Item Embeddings
 description: Learned movie embeddings from co-watched pairs with genre information, then recommended unseen movies from a user's taste vector.
-importance: 5
+importance: 6
 meta: "2025 · Basic Recommender Systems"
 img: # 왼쪽 사진. 예: /assets/img/projects/4_movie_embeddings.jpg
 category: coursework

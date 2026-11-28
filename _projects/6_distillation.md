@@ -2,7 +2,7 @@
 layout: page
 title: Diffusion-Based Dataset Distillation
 description: Ten synthetic images train MNIST to 88.7% accuracy. Compared trajectory matching with diffusion-based distillation.
-importance: 6
+importance: 7
 meta: "Fall 2025 · AI Data Analysis"
 img: /assets/img/projects/6_distillation.jpg
 category: coursework

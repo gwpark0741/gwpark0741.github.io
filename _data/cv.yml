@@ -50,6 +50,16 @@ cv:
           - Du-Seong Chang
         journal: Korea Software Congress (KSC 2026), poster, accepted
         date: 2026-11
+      - title: Variation under Prompt Rewording in Text-Guided Audio Separation
+        authors:
+          - Doeun Jeong
+          - "*Gwangwoong Park*"
+          - Minjeong Kim
+          - Youngwoo Cho
+          - Yoonseok Oh
+          - Du-Seong Chang
+        journal: Korea Software Congress (KSC 2026), accepted
+        date: 2026-11
       - title: Automatic Multi-Track Sound Metadata Generation via Hierarchical Video Analysis Using Vision Language Models
         authors:
           - "*Gwangwoong Park*"
@@ -61,6 +71,10 @@ cv:
         date: 2026-06
         url: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030
     Projects:
+      - name: Audyssey — Multi-Track Sound Separation and Generation Agent (in progress)
+        date: Fall 2026 – present
+        highlights:
+          - "Capstone Design team project. Led the pipeline architecture and the split between the app server and the GPU tools server; wrote the Planner and cross-model Validator, the Router that turns text into edit commands (macro-F1 0.906 on the dev set), and the integration of an in-house generation model built to raise selectivity (paper in preparation). Designed and reviewed the work and implemented it with AI coding agents"
       - name: SoundPilot — Sound Design Agent for Multi-Track Audio
         date: Spring 2026
         highlights:

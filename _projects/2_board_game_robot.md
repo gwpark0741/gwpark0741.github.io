@@ -2,7 +2,7 @@
 layout: page
 title: Assistive Board-Game Robot
 description: SO-101 arm with cameras and tactile sensing that moves pieces for players with limited hand mobility. In progress.
-importance: 2
+importance: 3
 meta: "Sep 2026 – present · Creative Convergence Research Program"
 img: /assets/img/projects/2_board_game_robot.jpg
 category: research

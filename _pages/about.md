@@ -107,6 +107,15 @@ My research is driven by a simple question: how can we make models genuinely und
       </div>
     </li>
     <li>
+      <div class="pub-title">텍스트 기반 음원 분리 모델에서 입력 문장 교체에 따른 출력 변화 분석</div>
+      <div class="pub-authors">정도은, <strong>박광웅</strong>, 김민정, 조영우, 오윤석, 장두성</div>
+      <div class="pub-tags">
+        <span class="pub-tag primary">KSC 2026</span>
+        <span class="pub-tag">한국정보과학회 한국소프트웨어종합학술대회</span>
+        <span class="pub-tag">채택</span>
+      </div>
+    </li>
+    <li>
       <div class="pub-title">비전 언어 모델(VLM) 기반 계층적 비디오 분석을 통한 멀티트랙 사운드 메타데이터 생성 파이프라인 개발</div>
       <div class="pub-authors"><strong>박광웅</strong>, 조영우, 차수환, 최재원, 장두성</div>
       <div class="pub-tags">
