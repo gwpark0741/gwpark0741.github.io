@@ -1,30 +1,140 @@
-/* Project detail pages: same quiet, compact type as the About page. Linked from each _projects/*.md */
+/*
+  Project detail pages. Linked from every _projects/*.md.
+  Every page follows the same order: info sheet, Problem, Approach, Results (or Progress),
+  optional Photos / Related papers / References, then Limits and next steps.
+  Colors come from the theme variables so light and dark modes both work.
+*/
 .post-header .post-title {
-  font-size: 1.9rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .post-header .post-description {
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 46rem;
+  color: var(--global-text-color-light);
 }
 .post article {
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.7;
 }
+.post article p,
+.post article ul,
+.post article ol {
+  max-width: 46rem;
+}
+
+/* Section rhythm: each h2 opens a new block with a hairline above it */
 .post article h2 {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 2rem 0 0.75rem;
+  margin: 2.75rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-divider-color);
 }
 .post article h3 {
   font-size: 1rem;
   font-weight: 600;
-  margin: 1.5rem 0 0.5rem;
+  margin: 1.75rem 0 0.5rem;
 }
+.post article h4 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+}
+
+/* Info sheet: the one emphasized element on the page */
+.post article table.project-info {
+  width: 100%;
+  margin: 0.5rem 0 1.5rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-left: 3px solid var(--global-theme-color);
+  background: color-mix(in srgb, var(--global-theme-color) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+}
+.post article table.project-info th,
+.post article table.project-info td {
+  padding: 0.6rem 1rem;
+  vertical-align: top;
+  border: 0;
+  border-top: 1px solid var(--global-divider-color);
+  line-height: 1.55;
+}
+.post article table.project-info tr:first-child th,
+.post article table.project-info tr:first-child td {
+  border-top: 0;
+}
+.post article table.project-info th {
+  width: 6.5rem;
+  font-weight: 500;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
+}
+
+/* Figures and media */
 .post article figure {
-  margin: 1.25rem 0;
+  margin: 1.5rem 0;
 }
+.post article figure img,
+.post article figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--global-divider-color);
+}
+.post article figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+  max-width: 46rem;
+}
+
+/* Content tables (pipeline steps, scores) */
+.post article table:not(.project-info) {
+  width: 100%;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.86rem;
+}
+.post article table:not(.project-info) th {
+  font-weight: 600;
+}
+.post article table:not(.project-info) th,
+.post article table:not(.project-info) td {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
 @media (max-width: 575px) {
   .post-header .post-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+  .post article table.project-info th,
+  .post article table.project-info td {
+    display: block;
+    width: auto;
+    padding: 0.15rem 0.9rem;
+  }
+  .post article table.project-info th {
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+  .post article table.project-info td {
+    border-top: 0;
+    padding-bottom: 0.6rem;
+  }
+  .post article table.project-info tr:first-child th {
+    border-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post article * {
+    transition: none !important;
   }
 }

@@ -3,24 +3,36 @@ layout: page
 title: SoundPilot
 description: A tool-calling agent that turns a silent video into editable multi-track sound. Capstone Gold Prize (1st place), KCC 2026 accepted, AI·SW competition Sponsor Company Award (Elice Group).
 importance: 1
-meta: "Spring 2026 · Capstone Design"
 img: /assets/img/projects/1_soundpilot.jpg
 category: research
+period: Spring 2026
+context: Capstone Design
+role: Problem definition and agent pipeline design
+outcome:
+  - Gold Prize (1st place), Sogang Capstone Design Competition, June 2026
+  - Sponsor Company Award (Elice Group), AI·SW-Centered University Excellent Project Competition, as Sogang's representative (18 of 60 teams reached the finals)
+  - KCC 2026 paper, accepted, first author
+highlight: Gold Prize
+materials:
+  - label: KCC 2026 paper (DBpia)
+    url: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030
+  - label: AI·SW competition slides (PDF, Korean)
+    url: /assets/slides/soundpilot-agent.pdf
+  - label: Capstone poster (PDF, Korean)
+    url: /assets/slides/soundpilot-poster.pdf
+  - label: KCC 2026 poster (PDF, Korean)
+    url: /assets/slides/kcc-poster.pdf
 ---
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Spring 2026 · Capstone Design · My role: problem definition and agent pipeline design**
-
-A tool-calling agent that turns a silent video into editable multi-track sound. Each sound is generated on its own track, routed to the model that fits it, and grounded in explicit visual evidence.
-
-| Recognition            | Detail                                                                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Gold Prize (1st place) | Sogang Capstone Design Competition, June 2026                                                                                               |
-| KCC 2026               | Accepted, first author ([DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030))                                         |
-| Sponsor Company Award  | Elice Group, at the AI·SW-Centered University Excellent Project Competition, as Sogang's representative (18 of 60 teams reached the finals) |
-
-Full materials (Korean): [AI·SW competition slides (PDF)]({{ '/assets/slides/soundpilot-agent.pdf' | relative_url }}) · [Capstone poster (PDF)]({{ '/assets/slides/soundpilot-poster.pdf' | relative_url }}) · [KCC 2026 poster (PDF)]({{ '/assets/slides/kcc-poster.pdf' | relative_url }})
+<table class="project-info">
+  <tr><th>Period</th><td>{{ page.period }}</td></tr>
+  <tr><th>Context</th><td>{{ page.context }}</td></tr>
+  {% if page.role %}<tr><th>Role</th><td>{{ page.role }}</td></tr>{% endif %}
+  {% if page.outcome %}<tr><th>Outcome</th><td>{{ page.outcome | join: "<br>" }}</td></tr>{% endif %}
+  {% if page.materials %}<tr><th>Materials</th><td>{% for m in page.materials %}<a href="{{ m.url | relative_url }}">{{ m.label }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</td></tr>{% endif %}
+</table>
 
 ## Problem
 
@@ -31,11 +43,11 @@ Current sound generation models have three limits.
 - The model gives no clear evidence for why a sound is there.
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s3.jpg' | relative_url }}" alt="Limits of existing models and the target system" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Limits of existing sound generation models and what SoundPilot targets: separate editing, correct timing, and visual grounding.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s3.jpg' | relative_url }}" alt="Limits of existing models and the target system">
+  <figcaption>Limits of existing sound generation models and what SoundPilot targets: separate editing, correct timing, and visual grounding.</figcaption>
 </figure>
 
-## Pipeline
+## Approach
 
 <figure>
   <div style="display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; align-items: center; font-size: 0.8rem;">
@@ -45,7 +57,7 @@ Current sound generation models have three limits.
     <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Model routing</span> →
     <span style="border: 1px solid; border-radius: 6px; padding: 0.2rem 0.55rem;">Editable sound timeline</span>
   </div>
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">One agentic workflow from video analysis to sound planning, generation, and editing.</figcaption>
+  <figcaption>One agentic workflow from video analysis to sound planning, generation, and editing.</figcaption>
 </figure>
 
 | Step             | What it does                                                                                                                                                                                                                                                                                                                                  |
@@ -56,45 +68,45 @@ Current sound generation models have three limits.
 | Timeline editing | Users can play each track, add or remove events, move timing, and edit a description to regenerate one sound.                                                                                                                                                                                                                                 |
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s4.jpg' | relative_url }}" alt="Sound design agent system" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">System overview.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s4.jpg' | relative_url }}" alt="Sound design agent system">
+  <figcaption>System overview.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s5.jpg' | relative_url }}" alt="Video analysis pipeline" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Video analysis: scene split, key frames, object identification, tracking with SAM 3, event estimation, and structured storage.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s5.jpg' | relative_url }}" alt="Video analysis pipeline">
+  <figcaption>Video analysis: scene split, key frames, object identification, tracking with SAM 3, event estimation, and structured storage.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s6.jpg' | relative_url }}" alt="Agent system design" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Agents: parallel tool-calling workers with a shared sound timeline.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s6.jpg' | relative_url }}" alt="Agent system design">
+  <figcaption>Agents: parallel tool-calling workers with a shared sound timeline.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s7.jpg' | relative_url }}" alt="Model routing by sound type" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Model routing: each sound type goes to the model that fits it.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s7.jpg' | relative_url }}" alt="Model routing by sound type">
+  <figcaption>Model routing: each sound type goes to the model that fits it.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s8.jpg' | relative_url }}" alt="Sound timeline editing" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Timeline editing: track playback, event editing, timing adjustment, and prompt-based regeneration.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s8.jpg' | relative_url }}" alt="Sound timeline editing">
+  <figcaption>Timeline editing: track playback, event editing, timing adjustment, and prompt-based regeneration.</figcaption>
 </figure>
 
-## Result
+## Results
 
 On a 17.2-second sword fight, SoundPilot produced 7 tracks and 36 events, with effects, voices, and background sound on separate tracks.
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s9.jpg' | relative_url }}" alt="SoundPilot UI" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Upload, plan, edit, and generate in one screen.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s9.jpg' | relative_url }}" alt="SoundPilot UI">
+  <figcaption>Upload, plan, edit, and generate in one screen.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_s10.jpg' | relative_url }}" alt="Result on a sword fight scene" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">The sword fight result: 7 tracks and 36 events.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_s10.jpg' | relative_url }}" alt="Result on a sword fight scene">
+  <figcaption>The sword fight result: 7 tracks and 36 events.</figcaption>
 </figure>
 
-## Earlier version: KCC 2026 paper
+### Earlier version: KCC 2026 paper
 
 The first version produced multi-track sound metadata (track, source, type, event type, timestamps, description) without the agent. A sound-source registry over the whole video kept repeated sounds on one track, where a commercial multi-track service split them at every cut.
 
@@ -104,30 +116,30 @@ The first version produced multi-track sound metadata (track, source, type, even
 | Without the registry | 13.3          | 6.3           |
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_tracks.jpg' | relative_url }}" alt="Track fragmentation compared with our merged tracks" style="width: 100%; max-width: 640px;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">(A) A commercial service splits the same sound into a new track at every cut. (B) Our registry keeps it on one track.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_tracks.jpg' | relative_url }}" alt="Track fragmentation compared with our merged tracks" style="max-width: 640px;">
+  <figcaption>(A) A commercial service splits the same sound into a new track at every cut. (B) Our registry keeps it on one track.</figcaption>
 </figure>
 
-## At the competition
+## Photos
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_award.jpg' | relative_url }}" alt="Receiving the Sponsor Company Award at the AI·SW-Centered University Excellent Project Competition" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Receiving the Sponsor Company Award (Elice Group) at the AI·SW-Centered University Excellent Project Competition.</figcaption>
-</figure>
-
-<figure>
-  <img src="{{ '/assets/img/projects/soundpilot_stage.jpg' | relative_url }}" alt="Presenting SoundPilot on stage" style="width: 100%;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Presenting SoundPilot on stage.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_award.jpg' | relative_url }}" alt="Receiving the Sponsor Company Award at the AI·SW-Centered University Excellent Project Competition">
+  <figcaption>Receiving the Sponsor Company Award (Elice Group) at the AI·SW-Centered University Excellent Project Competition.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_booth.jpg' | relative_url }}" alt="Presenting SoundPilot at the poster booth" style="width: 100%; max-width: 420px;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">At the poster booth.</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_stage.jpg' | relative_url }}" alt="Presenting SoundPilot on stage">
+  <figcaption>Presenting SoundPilot on stage.</figcaption>
 </figure>
 
 <figure>
-  <img src="{{ '/assets/img/projects/soundpilot_capstone_certificate.jpg' | relative_url }}" alt="Gold Prize certificate from the Sogang Capstone Design Competition" style="width: 100%; max-width: 420px;">
-  <figcaption style="font-size: 0.8rem; opacity: 0.7;">Gold Prize certificate, Sogang Capstone Design Competition (June 11, 2026).</figcaption>
+  <img src="{{ '/assets/img/projects/soundpilot_booth.jpg' | relative_url }}" alt="Presenting SoundPilot at the poster booth" style="max-width: 420px;">
+  <figcaption>At the poster booth.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/assets/img/projects/soundpilot_capstone_certificate.jpg' | relative_url }}" alt="Gold Prize certificate from the Sogang Capstone Design Competition" style="max-width: 420px;">
+  <figcaption>Gold Prize certificate, Sogang Capstone Design Competition (June 11, 2026).</figcaption>
 </figure>
 
 ## Limits and next steps
