@@ -2,7 +2,7 @@
 layout: page
 title: Squat Form Assessment
 description: Scores each squat rep from a phone video on five form criteria. Compared XGBoost, LSTM, and a video ViT.
-importance: 4
+importance: 5
 meta: "2025 · Parrot (Sogang University Data Science Society)"
 img: /assets/img/projects/5_posture.jpg
 category: research

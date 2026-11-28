@@ -2,7 +2,7 @@
 layout: page
 title: SoundPilot
 description: A tool-calling agent that turns a silent video into editable multi-track sound. Capstone Gold Prize (1st place), KCC 2026 accepted, AI·SW competition Sponsor Company Award (Elice Group).
-importance: 1
+importance: 2
 meta: "Spring 2026 · Capstone Design"
 img: /assets/img/projects/1_soundpilot.jpg
 category: research

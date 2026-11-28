@@ -61,6 +61,10 @@ cv:
         date: 2026-06
         url: https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030
     Projects:
+      - name: Audyssey — Multi-Track Sound Separation and Generation Agent (in progress)
+        date: Fall 2026 – present
+        highlights:
+          - "Capstone Design team project. Led the pipeline architecture and the split between the app server and the GPU tools server; wrote the Planner and cross-model Validator, the Router that turns text into edit commands (macro-F1 0.906 on the dev set), and the Separator quality gate (Judge pass bar 0.5 to 3.0, set from measured scores). Designed and reviewed the work and implemented it with AI coding agents"
       - name: SoundPilot — Sound Design Agent for Multi-Track Audio
         date: Spring 2026
         highlights:

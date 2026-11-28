@@ -2,7 +2,7 @@
 layout: page
 title: Airport Delay Network
 description: Found which US airports spread morning delays and which absorb them in the evening, using time-conditioned PageRank. Data hackathon Excellence Award.
-importance: 3
+importance: 4
 meta: "Nov 2025 · CAU × Sogang University Data Hackathon"
 img: /assets/img/projects/3_airport_delay.jpg
 category: research
