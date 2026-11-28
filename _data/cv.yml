@@ -66,7 +66,7 @@ cv:
         highlights:
           - "Capstone Design project. Defined the problem and designed the agent pipeline: scene split, VLM object identification, SAM 3 tracking, tool-calling agents on a shared sound timeline, and routing to video-to-audio, text-to-audio, and text-to-speech models"
           - "Measured run-to-run variance of VLM cut detection and replaced it with a deterministic detector for stable results"
-          - "Gold Prize (1st place) at the Sogang Capstone Design Competition; KCC 2026 accepted (first author); Main Award Finalist at the AI·SW-Centered University Excellent Project Competition"
+          - "Gold Prize (1st place) at the Sogang Capstone Design Competition; KCC 2026 accepted (first author); Sponsor Company Award (Elice Group) at the AI·SW-Centered University Excellent Project Competition"
       - name: Assistive Board-Game Robot (in progress)
         date: Sep 2026 – present
         highlights:
@@ -91,7 +91,7 @@ cv:
           - "AI Data Analysis, joint undergraduate–graduate course (A+). Built a live MNIST demo with the original method's code and released distilled images (ten images train a LeNet to 88.7%), and compared trajectory matching with diffusion-based distillation (D4M)"
     Honors:
       - label: Nov 2026
-        details: AI·SW-Centered University Excellent Project Competition — Main Award Finalist as Sogang's representative (18 of 60 teams)
+        details: AI·SW-Centered University Excellent Project Competition — Sponsor Company Award (Elice Group); Main Award Finalist as Sogang's representative (18 of 60 teams)
       - label: Spring 2026
         details: Sogang Capstone Design Competition — Gold Prize (1st place)
       - label: Fall 2025
