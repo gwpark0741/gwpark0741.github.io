@@ -28,3 +28,22 @@
     font-size: 1.5rem;
   }
 }
+
+/* Uniform project info block (Period / Context / Role / Outcome) */
+.post article table.project-info {
+  width: 100%;
+  margin: 1rem 0 1.25rem;
+  border-collapse: collapse;
+}
+.post article table.project-info th,
+.post article table.project-info td {
+  padding: 0.45rem 0.75rem 0.45rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--global-divider-color, rgba(128, 128, 128, 0.3));
+}
+.post article table.project-info th {
+  width: 5.5rem;
+  font-weight: 500;
+  opacity: 0.65;
+  white-space: nowrap;
+}

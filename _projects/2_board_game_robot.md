@@ -10,7 +10,12 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Sep 2026 – present · Team lead · Funded by Sogang's Creative Convergence Research Program (KRW 1.2M)**
+<table class="project-info">
+  <tr><th>Period</th><td>Sep 2026 – present</td></tr>
+  <tr><th>Context</th><td>Creative Convergence Research Program (Sogang University), KRW 1.2M funding</td></tr>
+  <tr><th>Role</th><td>Team lead</td></tr>
+  <tr><th>Outcome</th><td>In progress</td></tr>
+</table>
 
 _Status: parts ordered (Oct 2026), arm parts 3D-printed and both arms assembled (Nov 2026). Teleoperation works (Nov 2026) and the simulation environment is running; next is swapping in a camera-mount gripper and starting data collection. This page will be updated as the work progresses._
 

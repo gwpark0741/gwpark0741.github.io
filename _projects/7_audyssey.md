@@ -10,7 +10,12 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Fall 2026 · Capstone Design · In progress · My role: system architecture and integration, Planner/Validator, Router, integration of the in-house generation model**
+<table class="project-info">
+  <tr><th>Period</th><td>Fall 2026 – present</td></tr>
+  <tr><th>Context</th><td>Capstone Design</td></tr>
+  <tr><th>Role</th><td>System architecture and integration, Planner/Validator, Router, integration of the in-house generation model</td></tr>
+  <tr><th>Outcome</th><td>In progress. Two related KSC 2026 papers, both accepted (see below)</td></tr>
+</table>
 
 A five-person team project, still in progress. This page covers my parts only. I set the designs, reviewed and approved the results, and implemented them with AI coding agents (Claude Code).
 

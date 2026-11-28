@@ -10,7 +10,12 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Nov 2025 · CAU × Sogang University Data Hackathon · Excellence Award · My role: insight discovery and network modeling**
+<table class="project-info">
+  <tr><th>Period</th><td>Nov 2025</td></tr>
+  <tr><th>Context</th><td>CAU × Sogang University Data Hackathon</td></tr>
+  <tr><th>Role</th><td>Insight discovery and network modeling</td></tr>
+  <tr><th>Outcome</th><td>Excellence Award</td></tr>
+</table>
 
 Full materials (Korean): [Hackathon slides (PDF)]({{ '/assets/slides/airport-delay.pdf' | relative_url }})
 

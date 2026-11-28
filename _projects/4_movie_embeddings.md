@@ -10,7 +10,12 @@ category: coursework
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**2025 · Basic Recommender Systems (A+)**
+<table class="project-info">
+  <tr><th>Period</th><td>2025</td></tr>
+  <tr><th>Context</th><td>Basic Recommender Systems (course)</td></tr>
+  <tr><th>Role</th><td>—</td></tr>
+  <tr><th>Outcome</th><td>A+</td></tr>
+</table>
 
 The goal was to learn an embedding for every movie with a neural network, then use those embeddings to recommend movies to each user.
 

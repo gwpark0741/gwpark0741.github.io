@@ -10,7 +10,12 @@ category: coursework
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Fall 2025 · AI Data Analysis, joint undergraduate–graduate course (A+) · Team project**
+<table class="project-info">
+  <tr><th>Period</th><td>Fall 2025</td></tr>
+  <tr><th>Context</th><td>AI Data Analysis, joint undergraduate–graduate course</td></tr>
+  <tr><th>Role</th><td>Team project</td></tr>
+  <tr><th>Outcome</th><td>A+</td></tr>
+</table>
 
 Full materials (Korean): [Course presentation (PDF)]({{ '/assets/slides/dataset-distillation.pdf' | relative_url }})
 

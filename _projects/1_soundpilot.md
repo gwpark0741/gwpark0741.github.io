@@ -10,15 +10,14 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**Spring 2026 · Capstone Design · My role: problem definition and agent pipeline design**
+<table class="project-info">
+  <tr><th>Period</th><td>Spring 2026</td></tr>
+  <tr><th>Context</th><td>Capstone Design</td></tr>
+  <tr><th>Role</th><td>Problem definition and agent pipeline design</td></tr>
+  <tr><th>Outcome</th><td>Gold Prize (1st place), Sogang Capstone Design Competition, June 2026<br>Sponsor Company Award (Elice Group), AI·SW-Centered University Excellent Project Competition, as Sogang's representative (18 of 60 teams reached the finals)<br>KCC 2026 paper, accepted, first author (<a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030">DBpia</a>)</td></tr>
+</table>
 
 A tool-calling agent that turns a silent video into editable multi-track sound. Each sound is generated on its own track, routed to the model that fits it, and grounded in explicit visual evidence.
-
-| Recognition            | Detail                                                                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Gold Prize (1st place) | Sogang Capstone Design Competition, June 2026                                                                                               |
-| KCC 2026               | Accepted, first author ([DBpia](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12930030))                                         |
-| Sponsor Company Award  | Elice Group, at the AI·SW-Centered University Excellent Project Competition, as Sogang's representative (18 of 60 teams reached the finals) |
 
 Full materials (Korean): [AI·SW competition slides (PDF)]({{ '/assets/slides/soundpilot-agent.pdf' | relative_url }}) · [Capstone poster (PDF)]({{ '/assets/slides/soundpilot-poster.pdf' | relative_url }}) · [KCC 2026 poster (PDF)]({{ '/assets/slides/kcc-poster.pdf' | relative_url }})
 

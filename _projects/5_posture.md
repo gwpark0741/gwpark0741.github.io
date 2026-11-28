@@ -10,7 +10,12 @@ category: research
 
 <link rel="stylesheet" href="{{ '/assets/project-page.css' | relative_url }}">
 
-**2025 · Parrot (Sogang University Data Science Society) · My role: keypoint preprocessing for the LSTM, the MediaPipe test environment, occlusion handling, and the web demo**
+<table class="project-info">
+  <tr><th>Period</th><td>2025</td></tr>
+  <tr><th>Context</th><td>Parrot (Sogang University Data Science Society)</td></tr>
+  <tr><th>Role</th><td>Keypoint preprocessing for the LSTM, the MediaPipe test environment, occlusion handling, and the web demo</td></tr>
+  <tr><th>Outcome</th><td>—</td></tr>
+</table>
 
 Full materials (Korean): [Project slides (PDF)]({{ '/assets/slides/squat-form.pdf' | relative_url }})
 
